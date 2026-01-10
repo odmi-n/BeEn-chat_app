@@ -1,1 +1,11 @@
-/.venv/
+# 仮想環境
+.venv/
+
+# Python
+__pycache__/
+
+# Django
+db.sqlite3
+
+# OS
+.DS_Store
