@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.contrib import auth
+from django.contrib.auth import views as auth_views
 from django.shortcuts import redirect, render
 
-from .forms import SignUpForm
+from .forms import LoginForm, SignUpForm
 
 
 def index(request):
@@ -26,5 +27,10 @@ def signup(request):
     return render(request, "main/signup.html", context)
 
 
-def login(request):
-    return render(request, "main/login.html")
+class LoginView(auth_views.LoginView):
+    authentication_form = LoginForm
+    template_name = "main/login.html"
+
+
+def friends(request):
+    return render(request, "main/friends.html")
